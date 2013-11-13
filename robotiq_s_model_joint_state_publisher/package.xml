@@ -1,0 +1,24 @@
+<package>
+  <name>robotiq_s_model_joint_state_publisher</name>
+  <version>1.0.0</version>
+  <description>
+    Publishes (dummy) joint states to the `/joint_state` topic for the S-Model Robotiq hand.
+  </description>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+  <license>BSD</license>
+
+  <url type="website">http://wiki.ros.org/robotiq_s_model_joint_state_publisher</url>
+
+  <author email="fevb@kth.se">Francisco Vina</author>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+</package>

@@ -1,0 +1,23 @@
+<package>
+  <name>robotiq_s_model_utils</name>
+  <version>1.0.0</version>
+  <description>
+    Libraries for interfacing with the Robotiq S Model hand.
+  </description>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+  <license>BSD</license>
+
+  <url>http://wiki.ros.org/robotiq_s_model_utils</url>
+
+  <author email="fevb@kth.se">Francisco Vina</author>
+  <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>robotiq_s_model_control_client</run_depend>
+  <run_depend>robotiq_s_model_joint_state_publisher</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
