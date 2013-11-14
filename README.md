@@ -49,25 +49,25 @@ This C++ library provides a simple interface to the SModelTcpNode.py server from
 
 You can run the example robotiq_control_client_example by doing the following:
 
-1. Make sure you are connected to the hand via ethernet and that your network card is set to a fixed IP address different from the IP address of the Robotiq hand (e.g. `192.168.1.30`)
+1. Make sure you are connected to the hand via ethernet and that your network card is set to a **fixed IP address** different from the IP address of the Robotiq hand (e.g. `192.168.1.30`). Set the **netmask** to `255.255.255.0` and the **gateway** to `0.0.0.0`. 
 
 2. Bring up a roscore:
     
-    roscore
+        roscore
 
 3. Run the SModelTcpNode.py:
 
-    rosrun robotiq_s_model_control SModelTcpNode.py <ip_address>
+        rosrun robotiq_s_model_control SModelTcpNode.py <ip_address>
 
-Where <ip_address> is the IP address of the Robotiq hand (tipically `192.168.1.11`).
+    Where \<ip_address\> is the **IP address** of the Robotiq hand (tipically `192.168.1.11`). 
 
 4. Run the example:
    
-    rosrun robotiq_s_model_control_client robotiq_control_client_example
+        rosrun robotiq_s_model_control_client robotiq_control_client_example
 
 
 
 robotiq_s_model_joint_state_publisher
 ---------------------------------------------
 
-The `robotiq_dummy_joint_state_publisher` node publishes dummy joint states to the `/joint_state` topic.
+The `robotiq_dummy_joint_state_publisher` node publishes dummy joint states for the S-Model Robotiq hand to the `/joint_state` topic.
