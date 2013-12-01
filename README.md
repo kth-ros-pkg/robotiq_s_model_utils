@@ -47,6 +47,7 @@ robotiq_s_model_control_client
 
 This C++ library provides a simple interface to the SModelTcpNode.py server from the `robotiq_s_model_control` package for controlling an S-Model Robotiq hand.
 
+### Example ###
 You can run the example robotiq_control_client_example by doing the following:
 
 1. Make sure you are connected to the hand via ethernet and that your network card is set to a **fixed IP address** different from the IP address of the Robotiq hand (e.g. `192.168.1.30`). Set the **netmask** to `255.255.255.0` and the **gateway** to `0.0.0.0`. 
