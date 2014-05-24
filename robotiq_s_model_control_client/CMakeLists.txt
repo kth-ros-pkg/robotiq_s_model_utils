@@ -10,6 +10,8 @@ catkin_package(
   LIBRARIES robotiq_s_model_control_client
 )
 
+catkin_python_setup()
+
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
@@ -27,4 +29,8 @@ install(TARGETS ${PROJECT_NAME} robotiq_control_client_example
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(PROGRAMS scripts/robotiq_control_client_example_python
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

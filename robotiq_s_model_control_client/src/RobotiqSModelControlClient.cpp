@@ -53,7 +53,7 @@ RobotiqSModelControlClient::~RobotiqSModelControlClient()
 {
 }
 
-void RobotiqSModelControlClient::Activate()
+void RobotiqSModelControlClient::activate()
 {
 	SModel_robot_output command = SModel_robot_output();
 	command.rACT = 1;
@@ -63,7 +63,7 @@ void RobotiqSModelControlClient::Activate()
 	topicPub_SModelRobotOutput_.publish(command);
 }
 
-void RobotiqSModelControlClient::Reset()
+void RobotiqSModelControlClient::reset()
 {
 	SModel_robot_output command = SModel_robot_output();
 	command.rACT = 0;
@@ -71,13 +71,13 @@ void RobotiqSModelControlClient::Reset()
 }
 
 
-void RobotiqSModelControlClient::SetGraspingMode(const grasping_mode& mode)
+void RobotiqSModelControlClient::setGraspingMode(const grasping_mode& mode)
 {
 	m_current_grasping_mode = mode;
 }
 
 
-bool RobotiqSModelControlClient::Open(unsigned int speed, unsigned int force)
+bool RobotiqSModelControlClient::open(unsigned int speed, unsigned int force)
 {
 
 	unsigned int speed_ = speed;
@@ -101,7 +101,7 @@ bool RobotiqSModelControlClient::Open(unsigned int speed, unsigned int force)
 }
 
 
-bool RobotiqSModelControlClient::Close(unsigned int speed, unsigned int force)
+bool RobotiqSModelControlClient::close(unsigned int speed, unsigned int force)
 {
 	unsigned int speed_ = speed;
 	unsigned int force_ = force;
@@ -122,7 +122,7 @@ bool RobotiqSModelControlClient::Close(unsigned int speed, unsigned int force)
 }
 
 
-bool RobotiqSModelControlClient::GotoPos(const std::vector<unsigned int> &pos,
+bool RobotiqSModelControlClient::gotoPos(const std::vector<unsigned int> &pos,
 		const std::vector<unsigned int> &speed,
 		const std::vector<unsigned int> &force)
 {
@@ -212,7 +212,7 @@ bool RobotiqSModelControlClient::GotoPos(const std::vector<unsigned int> &pos,
 	return true;
 }
 
-void RobotiqSModelControlClient::GotoScissorPos(unsigned int pos, unsigned int speed, unsigned int force)
+void RobotiqSModelControlClient::gotoScissorPos(unsigned int pos, unsigned int speed, unsigned int force)
 {
 
 	unsigned int pos_ = pos;
@@ -245,12 +245,12 @@ void RobotiqSModelControlClient::topicCallback_SModelRobotInput(
 	m_status_msg = *msg;
 }
 
-SModel_robot_input RobotiqSModelControlClient::GetStatusMsg()
+SModel_robot_input RobotiqSModelControlClient::getStatusMsg()
 {
 	return m_status_msg;
 }
 
-RobotiqSModelControlClient::grasping_mode RobotiqSModelControlClient::GetGraspingMode()
+RobotiqSModelControlClient::grasping_mode RobotiqSModelControlClient::getGraspingMode()
 {
 	switch (m_status_msg.gMOD)
 	{
@@ -266,47 +266,47 @@ RobotiqSModelControlClient::grasping_mode RobotiqSModelControlClient::GetGraspin
 
 }
 
-bool RobotiqSModelControlClient::InResetMode()
+bool RobotiqSModelControlClient::inResetMode()
 {
 	return m_status_msg.gIMC==0;
 }
 
-bool RobotiqSModelControlClient::ActivationOngoing()
+bool RobotiqSModelControlClient::activationOngoing()
 {
 	return m_status_msg.gIMC==1;
 }
 
-bool RobotiqSModelControlClient::ModeChangeOngoing()
+bool RobotiqSModelControlClient::modeChangeOngoing()
 {
 	return m_status_msg.gIMC==2;
 }
 
-bool RobotiqSModelControlClient::ActivationCompleted()
+bool RobotiqSModelControlClient::activationCompleted()
 {
 	return m_status_msg.gIMC==3;
 }
 
-bool RobotiqSModelControlClient::ModeChangeCompleted()
+bool RobotiqSModelControlClient::modeChangeCompleted()
 {
 	return m_status_msg.gIMC==3;
 }
 
-bool RobotiqSModelControlClient::InMotion()
+bool RobotiqSModelControlClient::inMotion()
 {
 	return m_status_msg.gSTA==0;
 }
 
-bool RobotiqSModelControlClient::StoppedPartiallyBeforeRequestedPosition()
+bool RobotiqSModelControlClient::stoppedPartiallyBeforeRequestedPosition()
 {
 	return m_status_msg.gSTA==1;
 }
 
-bool RobotiqSModelControlClient::StoppedFullBeforeRequestedPosition()
+bool RobotiqSModelControlClient::stoppedFullBeforeRequestedPosition()
 {
 	return m_status_msg.gSTA==2;
 }
 
-bool RobotiqSModelControlClient::StoppedAtRequestedPosition()
+bool RobotiqSModelControlClient::stoppedAtRequestedPosition()
 {
 	return m_status_msg.gSTA==3;
 }

@@ -2,7 +2,7 @@
  <name>robotiq_s_model_control_client</name>
   <version>1.0.0</version>
   <description>
-    High-level C++ library for sending commands to the Robotiq S-model hand through the SModelTcpNode.py server from the robotiq_s_model_control package.
+    High-level C++ and python libraries for sending commands to the Robotiq S-model hand through the SModelTcpNode.py server from the robotiq_s_model_control package.
   </description>
   <maintainer email="fevb@kth.se">Francisco Vina</maintainer>
   <license>BSD</license>
@@ -19,6 +19,8 @@
 
   <run_depend>roscpp</run_depend>
   <run_depend>robotiq_s_model_control</run_depend>
+  <run_depend>python-rospkg</run_depend>
+  <run_depend>rospy</run_depend>
 
 </package>
 

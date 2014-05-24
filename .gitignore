@@ -13,4 +13,5 @@
 *.a
 
 *~
+*.pyc
 CMakeLists.txt.user
