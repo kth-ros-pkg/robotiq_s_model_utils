@@ -144,6 +144,28 @@ class RobotiqSModelControlClient():
             if len(pos)!=3 or len(speed)!=3 or len(force)!=3:
                 rospy.logerr('Invalid param size for goto_pos command')
 
+            command = SModel_robot_output()
+            command.rACT = 1
+            command.rGTO = 1
+            command.rMOD = self._current_grasping_mode
+
+            command.rICF = 1
+            command.rICS = 0
+
+            command.rPRA = pos_[0]
+            command.rSPA = speed_[0]
+            command.rFRA = force_[0]
+
+            command.rPRB = pos_[1]
+            command.rSPB = speed_[1]
+            command.rFRB = force_[1]
+
+            command.rPRC = pos_[2]
+            command.rSPC = speed_[2]
+            command.rFRC = force_[2]
+            self.publisher.publish(command)
+
+
 
     def goto_scissor_pos(self, pos, speed, force):
         """

@@ -52,6 +52,7 @@ if __name__ == "__main__":
     robotiq_hand.set_grasping_mode(robotiq_hand.GM_basic)
 
     # Close the hand
+    rospy.loginfo('Closing the hand')
     robotiq_hand.close()
     rospy.sleep(3.0)
 
