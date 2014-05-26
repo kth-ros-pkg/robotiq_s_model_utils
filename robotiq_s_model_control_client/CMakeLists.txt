@@ -3,14 +3,14 @@ project(robotiq_s_model_control_client)
 
 find_package(catkin REQUIRED COMPONENTS roscpp robotiq_s_model_control)
 
+catkin_python_setup()
+
 catkin_package(
   DEPENDS 
   CATKIN_DEPENDS roscpp robotiq_s_model_control
   INCLUDE_DIRS include
   LIBRARIES robotiq_s_model_control_client
 )
-
-catkin_python_setup()
 
 include_directories(
   include

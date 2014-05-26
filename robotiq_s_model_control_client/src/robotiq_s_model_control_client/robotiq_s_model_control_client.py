@@ -45,7 +45,6 @@ class RobotiqSModelControlClient():
     """
 
     def __init__(self):
-
         self.GM_basic = 0
         self.GM_pinch = 1
         self.GM_scissor = 2
@@ -81,7 +80,7 @@ class RobotiqSModelControlClient():
     def set_grasping_mode(self, grasping_mode):
         self._current_grasping_mode = grasping_mode
 
-    def open(self, speed, force):
+    def open(self, speed=150, force=150):
         speed_ = self._saturate_param(speed)
         force_ = self._saturate_param(force)
 
@@ -94,7 +93,7 @@ class RobotiqSModelControlClient():
 
         self.publisher.publish(command)
 
-    def close(self, speed, force):
+    def close(self, speed=150, force=150):
         speed_ = self._saturate_param(speed)
         force_ = self._saturate_param(force)
 

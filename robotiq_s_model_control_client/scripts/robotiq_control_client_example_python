@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-#   robotiq_control_client_example
+#   robotiq_control_client_example_python
 #
 #   Created on: May 24, 2014
 #   Authors:   Francisco Vina
@@ -37,12 +37,41 @@ import rospy
 from robotiq_s_model_control_client.robotiq_s_model_control_client import RobotiqSModelControlClient
 
 if __name__ == "__main__":
-
     rospy.init_node('robotiq_s_model_control_client_example')
     robotiq_hand = RobotiqSModelControlClient()
 
+    # wait for topics to be advertised
+    rospy.sleep(0.5)
+
+    # activate the hand
     rospy.loginfo('Activating the hand')
     robotiq_hand.activate()
+    rospy.sleep(5.0)
+
+    # Set basic grasping mode
+    robotiq_hand.set_grasping_mode(robotiq_hand.GM_basic)
+
+    # Close the hand
+    robotiq_hand.close()
+    rospy.sleep(3.0)
+
+    # Do individual finger control
+    pos = [255, 255, 255]
+    speed = [255, 255, 255]
+    force = [120, 120, 120]
+
+    pos[0] = 80
+    rospy.loginfo('Controlling position of finger A')
+    robotiq_hand.goto_pos(pos, speed, force)
+    rospy.sleep(5.0)
+
+    rospy.loginfo('Opening the hand')
+    robotiq_hand.open()
+
+    rospy.sleep(6.0)
+    
+
+
 
 
 
