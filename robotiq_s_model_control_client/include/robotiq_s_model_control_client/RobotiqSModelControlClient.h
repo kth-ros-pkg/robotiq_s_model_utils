@@ -67,21 +67,21 @@ public:
 
 
 	// must be called first
-	void Activate();
+	void activate();
 
-	void Reset();
+	void reset();
 
 
 	// grasp using preshapes
-	void SetGraspingMode(const grasping_mode &mode);
+	void setGraspingMode(const grasping_mode &mode);
 
 
 
 	// opens the hand (fingers A-C). Only for simple control mode
-	bool Open(unsigned int speed=150, unsigned int force=150);
+	bool open(unsigned int speed=150, unsigned int force=150);
 
 	// closes the hand (fingers A-C). Only for simple control mode
-	bool Close(unsigned int speed=150, unsigned int force=150);
+	bool close(unsigned int speed=150, unsigned int force=150);
 
 
 	// executes the position request command for fingers A,B,C
@@ -90,12 +90,12 @@ public:
 	// pos/speed/force[0] --> finger A
 	// pos/speed/force[1] --> finger B
 	// pos/speed/force[2] --> finger C
-	bool GotoPos(const std::vector<unsigned int> &pos,
+	bool gotoPos(const std::vector<unsigned int> &pos,
 			const std::vector<unsigned int> &speed,
 			const std::vector<unsigned int> &force);
 
 	// sets position for scissor axis
-	void GotoScissorPos(unsigned int pos, unsigned int speed = 150, unsigned int force = 150);
+	void gotoScissorPos(unsigned int pos, unsigned int speed = 150, unsigned int force = 150);
 
 
 	// --------------------- Function calls for reading status of the Robotiq hand ---------------------
@@ -103,29 +103,29 @@ public:
 
 	void topicCallback_SModelRobotInput(const SModel_robot_inputPtr &msg);
 
-	SModel_robot_input GetStatusMsg();
+	SModel_robot_input getStatusMsg();
 
-	grasping_mode GetGraspingMode();
+	grasping_mode getGraspingMode();
 
 	// bool Stopped();
 
-	bool InResetMode();
+	bool inResetMode();
 
-	bool ActivationOngoing();
+	bool activationOngoing();
 
-	bool ModeChangeOngoing();
+	bool modeChangeOngoing();
 
-	bool ActivationCompleted();
+	bool activationCompleted();
 
-	bool ModeChangeCompleted();
+	bool modeChangeCompleted();
 
-	bool InMotion();
+	bool inMotion();
 
-	bool StoppedPartiallyBeforeRequestedPosition();
+	bool stoppedPartiallyBeforeRequestedPosition();
 
-	bool StoppedFullBeforeRequestedPosition();
+	bool stoppedFullBeforeRequestedPosition();
 
-	bool StoppedAtRequestedPosition();
+	bool stoppedAtRequestedPosition();
 
 
 

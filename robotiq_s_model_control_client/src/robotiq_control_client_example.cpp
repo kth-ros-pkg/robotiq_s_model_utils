@@ -45,16 +45,16 @@ int main(int argc, char **argv) {
 
 	// first activate the hand
 	ROS_INFO("Activating the hand");
-	robotiq_control_client.Activate();
+	robotiq_control_client.activate();
 	ros::Duration(5.0).sleep();
 
 	// set basic grasping mode
 	ROS_INFO("Setting basic grasp mode");
-	robotiq_control_client.SetGraspingMode(RobotiqSModelControlClient::GM_basic);
+	robotiq_control_client.setGraspingMode(RobotiqSModelControlClient::GM_basic);
 
 
 	ROS_INFO("Closing the hand");
-	robotiq_control_client.Close();
+	robotiq_control_client.close();
 	ros::Duration(3.0).sleep();
 
 
@@ -65,12 +65,12 @@ int main(int argc, char **argv) {
 
 	pos[0] = 80;
 	ROS_INFO("Controlling position of Finger A");
-	robotiq_control_client.GotoPos(pos, speed, force);
+	robotiq_control_client.gotoPos(pos, speed, force);
 	ros::Duration(5.0).sleep();
 
 
 	ROS_INFO("Opening the hand");
-	robotiq_control_client.Open();
+	robotiq_control_client.open();
 	ros::Duration(6.0).sleep();
 	return 0;
 }
