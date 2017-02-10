@@ -189,6 +189,36 @@ class RobotiqSModelControlClient():
 
         self.publisher.publish(command)
 
+    def goto_configuration(self, config, speed, force):
+        """
+        Move the hand to a 4 DOF configuration (position). 
+        Each value is expected to be in a range of 0 to 255.
+        :param config (j0, j1, j2, j3) where j0 is the scissor joint, j1 finger 1, j2 finger 2 and j3 finger 3.
+        :param speed (v0, v1, v2, v3) speeds for the respective joints
+        :param force (f0, f1, f2, f3) forces for the respective joints
+        """
+        config = self._saturate_param(config)
+        speed = self._saturate_param(speed)
+        force = self._saturate_param(force)
+
+        command = SModel_robot_output()
+        command.rACT = 1
+        command.rGTO = 1
+        command.rICF = 1
+        command.rICS = 1
+        command.rPRS = config[0]
+        command.rSPS = speed[0]
+        command.rFRS = force[0]
+        command.rPRA = config[1]
+        command.rSPA = speed[1]
+        command.rFRA = force[1]
+        command.rPRB = config[2]
+        command.rSPB = speed[2]
+        command.rFRB = force[2]
+        command.rPRC = config[3]
+        command.rSPC = speed[3]
+        command.rFRC = force[3]
+        self.publisher.publish(command)
 
     def s_model_robot_input_callback(self, msg):
         """
